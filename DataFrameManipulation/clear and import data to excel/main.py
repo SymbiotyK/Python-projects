@@ -23,5 +23,5 @@ try:
         ef.to_excel(writer, sheet_name='Daily', index=True)
         df.loc[0:52].to_excel(writer, sheet_name='Weekly', index=True)
 except PermissionError:
-    print("Zamknij excela kurwo!!")
+    print("Zamknij excela!!")
     pass
