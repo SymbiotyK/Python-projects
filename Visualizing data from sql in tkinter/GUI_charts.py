@@ -86,7 +86,7 @@ def update_db():
     obszary = fetch_av_tables()
     for x in obszary: 
         # Importing data to MySQL
-        excelFilePath = 'danezLaga.xlsx'
+        excelFilePath = r"C:\Users\SymbiotyK\Desktop\gitHub\Python-projects\Visualizing data from sql in tkinter\danezLaga.xlsx"
         readFile = pd.read_excel (excelFilePath,sheet_name=x)
         convToTuples = [(row[1], row[2], row[0].strftime("%Y-%m-%d")) for row in readFile.values]
         mycursor = mydb.cursor()
@@ -171,7 +171,7 @@ canvas_widget.config(bg='lightgrey')
 canvas_widget.place(x=0,y=60)
 
 # Create a image logo
-logo = Image.open("white-brand.png")
+logo = Image.open(r"C:\Users\SymbiotyK\Desktop\gitHub\Python-projects\Visualizing data from sql in tkinter\white-brand.png")
 logo = logo.resize((150,40),Image.ADAPTIVE)
 ikona = ImageTk.PhotoImage(logo)
 tk.Label(root,image=ikona).place(x=window_width-160,y=10)
