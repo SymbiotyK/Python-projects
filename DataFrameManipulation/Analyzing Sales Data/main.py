@@ -11,3 +11,5 @@ dateofrel = func.remove_dups(df,"Year")
 SalesSum = df.groupby(["Platform"])[df.columns[-5:]].sum()
 SalesSum = SalesSum.sort_values(by="Global_Sales",ascending=False)
 print(SalesSum.head())
+
+#TO DO some charts in mpl
