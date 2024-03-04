@@ -9,20 +9,24 @@ from matplotlib.ticker import PercentFormatter
 from PIL import Image, ImageTk
 
 def fetch_av_tables():
-    mydb = mysql.connector.connect(
-    host='localhost',
-    user='root',
-    password='',
-    database='produkcja',
-    )
-    mycursor = mydb.cursor()
-    getRecords = 'show tables'
-    mycursor.execute(getRecords)
-    desRecords = mycursor.fetchall()
-    mydb.close()
-    records_tuple = tuple(row[0] for row in desRecords)
-    records_tuple = tuple(name.upper() for name in records_tuple)
-    return records_tuple
+    try:
+        mydb = mysql.connector.connect(
+        host='localhost',
+        user='root',
+        password='',
+        database='produkcja',
+        )
+        mycursor = mydb.cursor()
+        getRecords = 'show tables'
+        mycursor.execute(getRecords)
+        desRecords = mycursor.fetchall()
+        mydb.close()
+        records_tuple = tuple(row[0] for row in desRecords)
+        records_tuple = tuple(name.upper() for name in records_tuple)
+        return records_tuple
+    except mysql.connector.errors.InterfaceError:
+        print("Nie można połączyć się z bazą danych")
+        pass
 
 def fetch_data(obszar, zakres_od,zakres_do):
     mydb = mysql.connector.connect(
