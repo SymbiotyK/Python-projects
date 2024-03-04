@@ -10,5 +10,4 @@ dateofrel = func.remove_dups(df,"Year")
 
 SalesSum = df.groupby(["Platform"])[df.columns[-5:]].sum()
 SalesSum = SalesSum.sort_values(by="Global_Sales",ascending=False)
-SalesSum = SalesSum.eval()
 print(SalesSum.head())
